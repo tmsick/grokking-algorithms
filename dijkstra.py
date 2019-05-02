@@ -1,8 +1,17 @@
-edges = {(0, 1, 6), (0, 2, 2), (1, 3, 1), (2, 1, 3), (2, 3, 5)}
+edges = {
+    ('piano book', 'poster', 0),
+    ('piano book', 'lp', 5),
+    ('poster', 'guitar base', 30),
+    ('poster', 'drum set', 35),
+    ('lp', 'guitar base', 15),
+    ('lp', 'drum set', 20),
+    ('guitar base', 'piano', 20),
+    ('drum set', 'piano', 10),
+}
 nodes = {e[0] for e in edges} | {e[1] for e in edges}
 table = {n: float('inf') for n in nodes}
 
-first = 0
+first = 'piano book'
 table[first] = 0
 pivot_node = first
 
