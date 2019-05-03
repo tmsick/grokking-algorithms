@@ -20,7 +20,7 @@ def dp(items, limit):
     for i in range(len(grid)):
         items_available = {item for idx, item in enumerate(items) if idx <= i}
         for j in range(len(grid[0])):
-            grid[i][j] = max({0} | {
+            grid[i][j] = max({grid[i][j]} | {
                 grid[i][j - items[item]['weight']] + items[item]['value']
                 for item in items_available if j - items[item]['weight'] >= 0
             })
